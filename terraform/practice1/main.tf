@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 module "vpc" {
-  source     = "./modules/vpc"
-  cidr_block = "10.0.0.0/16"
+  source     = "modules/vpc"
+  cidr_block = "10.17.0.0/16"
 }
 
 resource "aws_instance" "web" {
@@ -14,7 +14,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [module.vpc.web_sg_id]
 
   tags = {
-    Name = "WebServer"
+    Name = "Bosscat-WebServer"
   }
 }
 
